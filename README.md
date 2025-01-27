@@ -1,63 +1,51 @@
-# Text Classification Project
+# Spam Detection using NLP and Machine Learning
 
-This project is focused on text classification using various machine learning techniques and libraries. The goal is to preprocess text data and classify it using a machine learning model.
+This project focuses on detecting spam messages using Natural Language Processing (NLP) techniques and machine learning models. The goal is to preprocess text data and classify messages as spam or not spam.
 
 ## Dependencies
 
 To run this project, you need to have the following libraries installed:
+- pandas
+- numpy
+- scikit-learn
+- nltk
+- pywin32
+- tkinter
 
-```python
-import pandas as pd
-import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.metrics import accuracy_score
-import nltk
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-import re
-import pickle
-from win32com.client import Dispatch
-import tkinter as tk
+You can install these libraries using Python's package manager, pip.
 
+## Dataset
 
-You can install the required libraries using:
-pip install pandas numpy scikit-learn nltk pywin32
+The dataset should be loaded into a pandas DataFrame. It's important to preprocess the text data by removing stopwords, lemmatizing, and applying TF-IDF vectorization.
 
-Dataset
-The dataset should be loaded into a pandas DataFrame. Make sure to preprocess the text data by removing stopwords, lemmatizing, and applying TF-IDF vectorization.
+## Usage
 
-Usage
-Preprocess Data: Preprocess the text data by cleaning it, removing stopwords, and lemmatizing.
+1. **Preprocess Data**: 
+    - Clean the text data.
+    - Remove stopwords.
+    - Lemmatize the words.
 
-TF-IDF Vectorization: Convert the text data into TF-IDF vectors:
+2. **TF-IDF Vectorization**: 
+    - Convert the cleaned text data into TF-IDF vectors.
 
-python
-vectorizer = TfidfVectorizer()
-X = vectorizer.fit_transform(corpus)
-Train-Test Split: Split the data into training and testing sets:
+3. **Train-Test Split**: 
+    - Split the dataset into training and testing sets.
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-Train Model: Train a machine learning model such as Multinomial Naive Bayes:
+4. **Train Model**: 
+    - Train a machine learning model (e.g., Multinomial Naive Bayes) using the training data.
 
-model = MultinomialNB()
-model.fit(X_train, y_train)
-Evaluate Model: Evaluate the performance of the model on the test set:
+5. **Evaluate Model**: 
+    - Evaluate the performance of the trained model on the test set.
+    - Calculate the accuracy of the model.
 
-predictions = model.predict(X_test)
-accuracy = accuracy_score(y_test, predictions)
-print(f"Accuracy: {accuracy}")
+6. **Save Model**: 
+    - Save the trained model and the TF-IDF vectorizer for future use.
 
-Save Model: Save the trained model and vectorizer using pickle:
-with open("model.pkl", "wb") as model_file:
-    pickle.dump(model, model_file)
-with open("vectorizer.pkl", "wb") as vec_file:
-    pickle.dump(vectorizer, vec_file)
+## Acknowledgments
 
+- This project is built using open-source libraries such as pandas, numpy, scikit-learn, and nltk.
+- Special thanks to the contributors, and the open-source community for their valuable resources and support.
 
+## License
 
-Acknowledgments
-This project is built using open-source libraries such as pandas, numpy, scikit-learn, and nltk.
-
-Special thanks to the contributors and the open-source community for their valuable resources and support.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
